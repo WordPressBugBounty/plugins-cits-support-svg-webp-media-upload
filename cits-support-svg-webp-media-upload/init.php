@@ -1,40 +1,33 @@
 <?php 
 /*
-Plugin Name: CITS Support SVG, WEBP, ICO Media and TTF,OTF File Upload
+Plugin Name: CITS Support svg, webp Media and TTF,OTF File Upload
 Plugin URI: https://coderitsolution.com
-Author: Ashikur
+Author: Ashik
 Author URI: https://ashik.me
-Description:  Enable Securely upload SVG, WEBP, ICO, TTF, OTF files and automatically sanitize media files to protect your website from XML/SVG vulnerabilities.
-Tags: svg support, safe svg, webp support, ico support, favicon support, support webp, cits support svg, cits support webp, CITS Support svg, webp media upload, font file upload support, ttf upload, otf upload, eot upload, woff upload.
-Version: 4.1
+Description:  Enhance your WordPress media capabilities with "Active the Plugin and Enjoy." This plugin extends your media library to support not only SVG and WebP images but also TTF, OTF, EOT, and WOFF font files. Safety is our top priority; that's why we've included an SVG sanitization feature to keep your site secure while you enjoy broader media upload options. Take control of your media and start uploading without errors today!
+Tags: svg support, safe svg, webp support, support webp, cits support svg, cits support webp, CITS Support svg, webp media upload, font file upload support, ttf upload, otf upload, eot upload, woff upload.
+Version: 4.0
 Requires at least: 5.0
-Tested up to: 6.5.3
+Tested up to: 6.4.1
 Requires PHP version: 7.0
 License: GPL2
 */
-define('CITS_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('CITS_PLUGIN_PATH', plugin_dir_path(__FILE__));
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 class CITS_SUPPORT_SVG_WEBP_MEDIA {
     public function __construct() {
-		add_action('admin_enqueue_scripts', array($this, 'cits_enqueue_admin_styles'));
-		 
         add_filter('upload_mimes', array($this, 'cits_upload_media_mimes'));
         add_filter('file_is_displayable_image', array($this, 'cits_is_displayable_webp'), 10, 2);
         add_filter('wp_prepare_attachment_for_js', array($this, 'cits_response_for_svg'), 10, 3);
         add_filter('wp_check_filetype_and_ext', array($this, 'cits_check_types'), 10, 4);
         add_filter('wp_handle_upload_prefilter', array($this, 'cits_sanitize_svg'));  
-		
-		// Include the admin file
-        include CITS_PLUGIN_PATH . 'admin/cits-admin.php';
     }
     
     function cits_upload_media_mimes($cits_mimes) {
         $cits_mimes['webp'] = 'image/webp'; 
         $cits_mimes['svg'] = 'image/svg+xml';
         $cits_mimes['svgz'] = 'image/svg+xml';
-        $cits_mimes['ico'] = 'image/x-icon';
         $cits_mimes['ttf'] = 'application/x-font-ttf';
         $cits_mimes['otf'] = 'application/x-font-otf';
         $cits_mimes['eot'] = 'application/x-font-eot';
@@ -64,9 +57,9 @@ class CITS_SUPPORT_SVG_WEBP_MEDIA {
             $ext = $check_filetype['ext'];
             $type = $check_filetype['type'];
             $proper_filename = $filename; 
-            if ($type && (0 === strpos($type, 'image/')) && ($ext !== 'svg' && $ext !== 'webp' && $ext !== 'ico')) {
+            if ($type && 0 === strpos($type, 'image/') && $ext !== 'svg') {
                 $ext = $type = false;
-            }
+            } 
             $checked = compact('ext', 'type', 'proper_filename');
         } 
         return $checked; 
@@ -128,9 +121,6 @@ class CITS_SUPPORT_SVG_WEBP_MEDIA {
         }
         return $file;
     }
-	
-	function cits_enqueue_admin_styles() { 
-        wp_enqueue_style('cits_admin_css', CITS_PLUGIN_URL . 'admin/cits-admin.css');
-    }
 }
+
 new CITS_SUPPORT_SVG_WEBP_MEDIA();
