@@ -1,11 +1,11 @@
 === CITS Support svg, webp Media and TTF,OTF File Upload ===
 Contributors: ashikcse
-Tags: svg support, safe svg, webp support, support webp, cits support svg, cits support webp, CITS Support svg, webp media upload, font file upload support, ttf upload, otf upload, eot upload, woff upload.
+Tags: webp support, ico support, svg support, media upload, font upload.
 Requires at least: 5.0
-Stable tag: 1.0.0
-Tested up to: 6.4.1
-Requires PHP: 7.0
-Version: 4.0
+Stable tag: 4.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Version: 4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
