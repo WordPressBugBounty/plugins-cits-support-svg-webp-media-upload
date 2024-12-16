@@ -1,0 +1,26 @@
+#toplevel_page_cits-custom-fonts .wp-menu-image.dashicons-before img {
+	width: 20px;
+	height: 18px;
+	object-fit: contain;
+}
+#custom-font-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button.copy-font-family {
+    margin-right: 10px;
+}
+
+.button-danger {
+    background-color: #d63638 !important;
+    color: #fff !important;
+    border: none !important;
+}
+.button-danger:hover {
+    background-color: #a82b2d !important;
+    color: #fff !important;
+}

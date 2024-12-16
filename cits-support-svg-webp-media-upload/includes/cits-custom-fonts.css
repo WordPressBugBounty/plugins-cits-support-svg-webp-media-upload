@@ -1,0 +1,9 @@
+@font-face {
+            font-family: 'Roboto-Thin-Ashik';
+            src: url('http://wp.test/wp-content/uploads/2024/12/Roboto-Thin.ttf') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+h1 {
+                font-family: 'Roboto-Thin-Ashik', sans-serif;
+            }

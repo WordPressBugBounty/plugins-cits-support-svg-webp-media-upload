@@ -1,19 +1,21 @@
 <?php 
 /*
-Plugin Name: CITS Support svg, webp Media and TTF,OTF File Upload
+Plugin Name: CITS Support svg, webp Media and TTF,OTF File Upload, Use Custom Fonts
 Plugin URI: https://coderitsolution.com
 Author: Ashikur Rahman
 Author URI: https://ashik.me
-Description:  Enhance your WordPress media capabilities with "Active the Plugin and Enjoy." This plugin extends your media library to support not only SVG and WebP images but also TTF, OTF, EOT, and WOFF font files. Safety is our top priority; that's why we've included an SVG sanitization feature to keep your site secure while you enjoy broader media upload options. Take control of your media and start uploading without errors today!
-Tags: webp support, ico support, svg support, media upload, font upload.
-Version: 4.1
+Description:  Enhance your WordPress media capabilities with "Active the Plugin and Enjoy." This plugin extends your media library to support not only SVG and WebP images but also TTF, OTF, EOT, and WOFF font files. Safety is our top priority; that's why we've included an SVG sanitization feature to keep your site secure while you enjoy broader media upload options. Take control of your media and start uploading without errors today! and Custom fonts upload for Elementor
+Tags: webp support, ico support, svg support, media upload, custom font upload
+Version: 4.2.0
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP version: 7.4
 License: GPL2
+Text Domain: cits-support-svg-webp-media-upload 
 */
 
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/includes/cits-custom-fonts.php';
 
 class CITS_SUPPORT_SVG_WEBP_MEDIA {
     public function __construct() {
